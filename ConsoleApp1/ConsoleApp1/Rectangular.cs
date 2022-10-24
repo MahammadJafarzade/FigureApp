@@ -28,5 +28,10 @@ namespace ConsoleApp1
             perimetr = 2*(a+b);
             return perimetr;
         }
+
+        public override string ToString()
+        {
+            return "Rectangle Side 1:" +a+" Side 2: "+ b +" Area: "+ area + " Perimeter: " + perimetr;
+        }
     }
 }

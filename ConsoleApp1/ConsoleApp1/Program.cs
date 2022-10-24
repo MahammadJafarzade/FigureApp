@@ -50,6 +50,8 @@ namespace ConsoleApp1
                     foreach (var item in lines)
                     {
                         Console.WriteLine(item);
+                        string[] words = item.Split(' ', ':');
+                        foreach (var w in words) Console.WriteLine(w);
                     }
                 }
                 if (input == "2")
@@ -68,7 +70,7 @@ namespace ConsoleApp1
                             double perimetr = newSquare.Perimetr();
                             Console.WriteLine($"Area:{area}, Perimetr{perimetr}");
 
-                            figuresInfo += $"\nSquare\nSide: {side}\nArea: {area}\nPerimeter: {perimetr}\n";
+                            figuresInfo += $"Square Side: {side} Area: {area} Perimeter: {perimetr}";
                             break;
                         case "b":
                             Console.Write("Enter length:");
@@ -79,7 +81,8 @@ namespace ConsoleApp1
                             double RectangularArea = newRectangular.Area();
                             double RectangularPerimetr = newRectangular.Perimetr();
                             Console.WriteLine($"Area:{RectangularArea}, Perimetr{RectangularPerimetr}");
-                            figuresInfo += $"\nRectangle\nSide 1: {length}\nSide 2: {height}\nArea: {RectangularArea}\nPerimeter: {RectangularPerimetr}\n"; break;
+                            fIgures.Add(newRectangular);
+                            figuresInfo += newRectangular.ToString(); break;
                         case "c":
                             Console.Write("Enter a:");
                             double a = Convert.ToDouble(Console.ReadLine());
@@ -102,11 +105,10 @@ namespace ConsoleApp1
                 }
                 if (input == "4")
                 {
-               
-                    using (StreamWriter writer = new StreamWriter(folderName, true))
+                    using (StreamWriter writer = new StreamWriter(folderName, false))
                     {
-                        writer.WriteLine(figuresInfo);
-
+                        foreach(var f in fIgures)
+                        writer.WriteLine(f.ToString());
                     }
                     break;
                 }
