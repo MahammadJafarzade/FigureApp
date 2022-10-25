@@ -65,9 +65,16 @@ namespace ConsoleApp1
                         case "a":
                             Console.Write("Enter side:");
                             double side = Convert.ToDouble(Console.ReadLine());
-                            Square newSquare = new Square(side);
-                            double area = newSquare.Area();
-                            double perimetr = newSquare.Perimetr();
+                            List<Point> pointsquare = new List<Point>()
+                            {
+                                new Point(0,0),
+                                new Point(0,4),
+                                new Point(4,4),
+                                new Point(4,0)
+                            };
+                            Square newSquare = new Square(side, pointsquare);
+                            double area = newSquare.CalculateArea();
+                            double perimetr = newSquare.CalculatePerimeter();
                             Console.WriteLine($"Area:{area}, Perimetr{perimetr}");
 
                             figuresInfo += $"Square Side: {side} Area: {area} Perimeter: {perimetr}";
@@ -77,9 +84,16 @@ namespace ConsoleApp1
                             double length = Convert.ToDouble(Console.ReadLine());
                             Console.Write("Enter height:");
                             double height = Convert.ToDouble(Console.ReadLine());
-                            Rectangular newRectangular = new Rectangular(length, height);
-                            double RectangularArea = newRectangular.Area();
-                            double RectangularPerimetr = newRectangular.Perimetr();
+                            List<Point> pointRectangular = new List<Point>()
+                            {
+                                new Point(0,0),
+                                new Point(0,5),
+                                new Point(5,4),
+                                new Point(4,0)
+                            };
+                            Rectangular newRectangular = new Rectangular(length, height, pointRectangular);
+                            double RectangularArea = newRectangular.CalculateArea();
+                            double RectangularPerimetr = newRectangular.CalculatePerimeter();
                             Console.WriteLine($"Area:{RectangularArea}, Perimetr{RectangularPerimetr}");
                             fIgures.Add(newRectangular);
                             figuresInfo += newRectangular.ToString(); break;
@@ -90,9 +104,15 @@ namespace ConsoleApp1
                             double b = Convert.ToDouble(Console.ReadLine());
                             Console.Write("Enter c:");
                             double c = Convert.ToDouble(Console.ReadLine());
-                            Triangle newTriangle = new Triangle(a, b, c);
-                            double TriangleArea = newTriangle.Area();
-                            double TrianglePerimetr = newTriangle.Perimetr();
+                            List<Point> pointTriangle = new List<Point>()
+                            {
+                                new Point(0,0),
+                                new Point(0,8),
+                                new Point(6,0)
+                            };
+                            Triangle newTriangle = new Triangle(pointTriangle);
+                            double TriangleArea = newTriangle.CalculateArea();
+                            double TrianglePerimetr = newTriangle.CalculatePerimeter();
                             Console.WriteLine($"Area:{TriangleArea}, Perimetr{TrianglePerimetr}");
                             figuresInfo += $"\nTriangle\nSide 1: {a}\nSide 2: {b}\nSide 3: {c}\nArea: {TriangleArea}\nPerimeter: {TrianglePerimetr}\n"; break;
                         default:
@@ -101,7 +121,7 @@ namespace ConsoleApp1
                 }
                 if (input == "3")
                 {
-
+                   
                 }
                 if (input == "4")
                 {

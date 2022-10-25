@@ -8,13 +8,25 @@ namespace ConsoleApp1
 {
     public abstract class FIgure
     {
-        public abstract double Perimetr();
-        public abstract double Area();
+ 
         public double area { get; set; }
         public double perimetr { get; set; }
         public List<Point> points { get; set; }
         public Point Center { get; protected set; }
+        public FIgure(List<Point> points)
+        {
+            this.points = points;
+            this.CalculateArea();
+            this.CalculatePerimeter();
+            this.FindCenter();
+        }
 
+        public abstract double CalculatePerimeter();
+        public abstract double CalculateArea();
+        public abstract void MoveFigure(double x, double y);
+        public abstract void RotateFigure(double degree);
+        public abstract void ScaleFigure(double scale);
+        public abstract void FindCenter();
 
     }
 }
