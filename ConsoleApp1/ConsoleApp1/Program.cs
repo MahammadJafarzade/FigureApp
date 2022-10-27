@@ -11,9 +11,9 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-                string figuresInfo = "";
-                List<FIgure> fIgures = new List<FIgure>();
-                string folderName = @"C:\Users\Orkhan\OneDrive\Desktop\ConsoleApp\Figures.txt";
+            string figuresInfo = "";
+            List<FIgure> fIgures = new List<FIgure>();
+            string folderName = @"C:\Users\Orkhan\OneDrive\Desktop\ConsoleApp\Figures.txt";
             while (true)
             {
                 //Console application with menu:
@@ -119,16 +119,64 @@ namespace ConsoleApp1
                             break;
                     }
                 }
-                if (input == "3")
+                else if (input == "3")
                 {
-                   
+                    Console.WriteLine("Choose option a,b,c:");
+                    string yourOption = Console.ReadLine();
+                    switch (yourOption)
+                    {
+                        case "a":
+                            Console.Write("Choose figure: ");
+                            int optionFigure = Convert.ToInt32(Console.ReadLine());
+                            for (int i = 0; i < fIgures.Count; i++)
+                            {
+                                if (optionFigure == i + 1)
+                                {
+                                    FIgure currentFigure = fIgures[i];
+                                    Console.Write("Enter x: ");
+                                    double x = Convert.ToDouble(Console.ReadLine());
+                                    Console.Write("Enter y: ");
+                                    double y = Convert.ToDouble(Console.ReadLine());
+                                    currentFigure.MoveFigure(x, y);
+                                }
+                            }
+                            break;
+                        case "b":
+                            Console.Write("Choose figure: ");
+                            int optionFigureRotate = Convert.ToInt32(Console.ReadLine());
+                            for (int i = 0; i < fIgures.Count; i++)
+                            {
+                                if (optionFigureRotate == i + 1)
+                                {
+                                    FIgure currentFigure = fIgures[i];
+                                    Console.Write("Enter degree: ");
+                                    double degree = Convert.ToDouble(Console.ReadLine());
+                                    currentFigure.RotateFigure(degree);
+                                }
+                            }
+                            break;
+                        case "c":
+                            Console.Write("Choose figure: ");
+                            int optionFigureScale = Convert.ToInt32(Console.ReadLine());
+                            for (int i = 0; i < fIgures.Count; i++)
+                            {
+                                if (optionFigureScale == i + 1)
+                                {
+                                    FIgure currentFigure = fIgures[i];
+                                    Console.Write("Enter scale: ");
+                                    double scale = Convert.ToDouble(Console.ReadLine());
+                                    currentFigure.RotateFigure(scale);
+                                }
+                            }
+                            break;
+                    }   
                 }
                 if (input == "4")
                 {
                     using (StreamWriter writer = new StreamWriter(folderName, false))
                     {
-                        foreach(var f in fIgures)
-                        writer.WriteLine(f.ToString());
+                        foreach (var f in fIgures)
+                            writer.WriteLine(f.ToString());
                     }
                     break;
                 }
