@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
+    [Serializable()]
     class Square : FIgure
     {
         public double side { get; set; }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
+    [Serializable()]
     class Triangle : FIgure
     {
         public double a { get; set; }
@@ -22,7 +23,7 @@ namespace ConsoleApp1
                 double s = (a + b + c) / 2;
                 double result = Math.Sqrt(s * (s - a) * (s - b) * (s - c));
                 Console.WriteLine("The area is " + result);
-                return area;
+                return result;
         }
 
         public override double CalculatePerimeter()

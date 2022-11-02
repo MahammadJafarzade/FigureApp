@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -179,6 +180,10 @@ namespace ConsoleApp1
                             writer.WriteLine(f.ToString());
                     }
                     break;
+                    Stream SaveFileStream = File.Create(folderName);
+                    BinaryFormatter serializer = new BinaryFormatter();
+                    serializer.Serialize(SaveFileStream, fIgures);
+                    SaveFileStream.Close();
                 }
             }
         }

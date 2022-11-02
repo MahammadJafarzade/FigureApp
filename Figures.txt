@@ -1,4 +1,0 @@
-Rectangle Side 1:10 Side 2: 8 Area: 80 Perimeter: 36
-
-Rectangle Side 1:9 Side 2: 7 Area: 63 Perimeter: 32
-

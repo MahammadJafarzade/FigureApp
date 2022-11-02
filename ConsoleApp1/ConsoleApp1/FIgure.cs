@@ -3,9 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace ConsoleApp1
 {
+    [Serializable()]
+    [XmlInclude(typeof(Rectangular))]
+    [XmlInclude(typeof(Square))]
+    [XmlInclude(typeof(Triangle))]
+    [XmlRoot(Namespace = "CosoleApp1")]
     public abstract class FIgure
     {
  
