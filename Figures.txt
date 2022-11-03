@@ -1,0 +1,36 @@
+[
+  {
+    "$type": "ConsoleApp1.Rectangular, ConsoleApp1",
+    "a": 5.0,
+    "b": 4.1231056256176606,
+    "area": 20.615528128088304,
+    "perimetr": 18.246211251235323,
+    "points": [
+      {
+        "$type": "ConsoleApp1.Point, ConsoleApp1",
+        "X": 0.0,
+        "Y": 0.0
+      },
+      {
+        "$type": "ConsoleApp1.Point, ConsoleApp1",
+        "X": 0.0,
+        "Y": 5.0
+      },
+      {
+        "$type": "ConsoleApp1.Point, ConsoleApp1",
+        "X": 5.0,
+        "Y": 4.0
+      },
+      {
+        "$type": "ConsoleApp1.Point, ConsoleApp1",
+        "X": 4.0,
+        "Y": 0.0
+      }
+    ],
+    "Center": {
+      "$type": "ConsoleApp1.Point, ConsoleApp1",
+      "X": 2.25,
+      "Y": 2.25
+    }
+  }
+]

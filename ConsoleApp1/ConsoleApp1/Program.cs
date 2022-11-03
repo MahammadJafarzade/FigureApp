@@ -1,10 +1,13 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace ConsoleApp1
 {
@@ -170,20 +173,43 @@ namespace ConsoleApp1
                                 }
                             }
                             break;
-                    }   
-                }
-                if (input == "4")
-                {
-                    using (StreamWriter writer = new StreamWriter(folderName, false))
-                    {
-                        foreach (var f in fIgures)
-                            writer.WriteLine(f.ToString());
                     }
+                }
+                else if (input == "4")
+                {
+
+                    //binary
+                    //Stream SaveFileStream = File.Create(folderName);
+                    //BinaryFormatter serializer = new BinaryFormatter();
+                    //serializer.Serialize(SaveFileStream, fIgures);
+                    //SaveFileStream.Close();
+                    //xml
+                    //XmlSerializer mySerializer = new XmlSerializer(typeof(List<FIgure>));
+                    //StreamWriter Writer = new StreamWriter(folderName);
+                    //mySerializer.Serialize(Writer, fIgures);
+                    //Writer.Close();
+                    //Json
+                    Console.WriteLine("Save to file");
+                    using (StreamWriter writer = new StreamWriter(folderName, true))
+                    {
+                        writer.WriteLine(figuresInfo);
+                    }
+                    using (StreamWriter sw = new StreamWriter(folderName))
+                    {
+                        JsonSerializer jsonSerializer = JsonSerializer.
+                            Create(new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Objects, Formatting = Formatting.Indented });
+                        jsonSerializer.Serialize(sw, fIgures);
+                    }
+                    //using (StreamWriter writer = new StreamWriter(folderName, true))
+                    //{
+                    //    foreach (var f in fIgures)
+                    //        writer.WriteLine(f.ToString());
+                    //}
                     break;
-                    Stream SaveFileStream = File.Create(folderName);
-                    BinaryFormatter serializer = new BinaryFormatter();
-                    serializer.Serialize(SaveFileStream, fIgures);
-                    SaveFileStream.Close();
+                }
+                else
+                {
+                    Console.WriteLine("invalid input");
                 }
             }
         }
